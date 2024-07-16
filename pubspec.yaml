@@ -1,0 +1,28 @@
+name: ui_app_presensi_kota_mataram
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.2.1
+  flutter_skeleton_ui: ^0.0.6
+  flutter_slidable: ^3.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/blob_haikei4.png
+    - assets/images/blob_scene_haikei2.png
+    - assets/images/dr_arfi2.jpg

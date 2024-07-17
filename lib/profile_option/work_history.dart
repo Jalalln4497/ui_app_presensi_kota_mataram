@@ -178,7 +178,7 @@ class _RiwayatKerjaListState extends State<RiwayatKerjaList> {
                       itemBuilder: (context, index) {
                         return Card(
                           color: Colors.white,
-                          margin: EdgeInsets.symmetric(vertical: 8.0),
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0),
                             side: const BorderSide(
@@ -205,7 +205,7 @@ class _RiwayatKerjaListState extends State<RiwayatKerjaList> {
                                               BorderRadius.circular(8),
                                         ),
                                       ),
-                                      SizedBox(height: 5),
+                                      const SizedBox(height: 5),
                                       SkeletonLine(
                                         style: SkeletonLineStyle(
                                           height: 14,
@@ -227,7 +227,7 @@ class _RiwayatKerjaListState extends State<RiwayatKerjaList> {
                                               BorderRadius.circular(8),
                                         ),
                                       ),
-                                      SizedBox(height: 5),
+                                      const SizedBox(height: 5),
                                       SkeletonLine(
                                         style: SkeletonLineStyle(
                                           height: 14,
@@ -296,7 +296,7 @@ class _RiwayatKerjaListState extends State<RiwayatKerjaList> {
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(14.0),
                                 ),
-                                color: Color(0xFF66BB6A),
+                                color: const Color(0xFF66BB6A),
                               ),
                               child: Text(
                                 item['status']!,

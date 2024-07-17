@@ -123,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
                         PageRouteBuilder(
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                                  WorkHistoryScreen(),
+                                  const WorkHistoryScreen(),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             var begin = const Offset(1.0, 0.0);

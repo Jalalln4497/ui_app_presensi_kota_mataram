@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DataDiriScreen extends StatelessWidget {
   final Map<String, dynamic> profile = {
@@ -45,7 +44,7 @@ class DataDiriScreen extends StatelessWidget {
             pinned: true,
             floating: false,
             expandedHeight: 50.0,
-            shadowColor: Color(0xFF363636),
+            shadowColor: const Color(0xFF363636),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(28),
@@ -212,7 +211,7 @@ class ProfileCard extends StatelessWidget {
                 return Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

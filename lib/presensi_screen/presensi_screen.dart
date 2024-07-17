@@ -304,7 +304,8 @@ class PresenceCard extends StatelessWidget {
             onPressed: (context) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PresensiPulangScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const PresensiPulangScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),
@@ -320,7 +321,8 @@ class PresenceCard extends StatelessWidget {
             onPressed: (context) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PresensiPulangScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const PresensiPulangScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),

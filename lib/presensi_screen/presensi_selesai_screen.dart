@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
 import 'dart:async';
-
-// class PresensiSelesaiScreen extends StatelessWidget {
-//   const PresensiSelesaiScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Detail Page'),
-//       ),
-//       body: Center(
-//         child: Text('Detail Page'),
-//       ),
-//     );
-//   }
-// }
 
 class PresensiSelesaiScreen extends StatefulWidget {
   const PresensiSelesaiScreen({super.key});
@@ -28,7 +11,6 @@ class PresensiSelesaiScreen extends StatefulWidget {
 
 class _PresensiPulangScreenState extends State<PresensiSelesaiScreen> {
   bool isLoading = true;
-  List<Map<String, String>> presenceData = [];
 
   @override
   void initState() {
@@ -37,38 +19,6 @@ class _PresensiPulangScreenState extends State<PresensiSelesaiScreen> {
     Timer(const Duration(seconds: 3), () {
       setState(() {
         isLoading = false;
-        presenceData = [
-          {
-            'location': 'Taman Sangkareang',
-            'address': 'Taman Sangkareang',
-            'status': 'Anda di luar radius area ini',
-            'color': 'red',
-          },
-          {
-            'location': 'Sradha Bhakti',
-            'address': 'Pura Sangkara Hyang',
-            'status': 'Anda di luar radius area ini',
-            'color': 'red',
-          },
-          {
-            'location': 'Kantor Walikota Kota Mataram',
-            'address': 'Jl. Pejanggik No.16',
-            'status': 'Bagus, Anda dalam radius area ini',
-            'color': 'green',
-          },
-          {
-            'location': 'Dinas Kominfo',
-            'address': 'Jl. Flamboyan No.1',
-            'status': 'Bagus, Anda dalam radius area ini',
-            'color': 'green',
-          },
-          {
-            'location': 'Dinas Kominfo',
-            'address': 'Jl. Flamboyan No.1',
-            'status': 'Bagus, Anda dalam radius area ini',
-            'color': 'green',
-          },
-        ];
       });
     });
   }
@@ -78,6 +28,26 @@ class _PresensiPulangScreenState extends State<PresensiSelesaiScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF3F6FD),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color(0xFFD9E5FA),
+                width: 2,
+              ),
+            ),
+            child: const Icon(
+              Icons.arrow_back,
+              color: Color(0xFF008AE3),
+            ),
+          ),
+        ),
         title: const Text(
           'Presensi',
           style: TextStyle(
@@ -133,7 +103,6 @@ class _PresensiPulangScreenState extends State<PresensiSelesaiScreen> {
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.green[400],
-                    // color: Color(0xFF008AE3),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -158,11 +127,11 @@ class _PresensiPulangScreenState extends State<PresensiSelesaiScreen> {
                         )
                       : Container(
                           padding: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.only(bottom: 7),
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
-                                // color: Colors.black.withOpacity(0.1),
                                 spreadRadius: 5,
                                 blurRadius: 15,
                                 offset: const Offset(0, 5),

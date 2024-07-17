@@ -140,7 +140,7 @@ class _CoordinateListState extends State<CoordinateList> {
                       itemBuilder: (context, index) {
                         return Card(
                           color: Colors.white,
-                          margin: EdgeInsets.symmetric(vertical: 8.0),
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0),
                             side: const BorderSide(

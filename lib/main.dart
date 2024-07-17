@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.robotoTextTheme(),
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
@@ -51,8 +51,8 @@ class _MainScreenState extends State<MainScreen>
 
   final List<Widget> _pages = [
     const HomeScreen(),
-    PresensiScreen(),
-    KoordinatScreen(),
+    const PresensiScreen(),
+    const KoordinatScreen(),
     const ProfileScreen(),
     const OfflineScreen(),
   ];
@@ -130,7 +130,9 @@ class _MainScreenState extends State<MainScreen>
               child: Text(
                 isSelected ? label : '',
                 style: TextStyle(
-                  color: isSelected ? Color(0xFF008AE3) : Color(0xFF008AE3),
+                  color: isSelected
+                      ? const Color(0xFF008AE3)
+                      : const Color(0xFF008AE3),
                 ),
               ),
             ),

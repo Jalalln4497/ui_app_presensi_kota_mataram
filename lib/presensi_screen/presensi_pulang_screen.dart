@@ -63,6 +63,26 @@ class _PresensiPulangScreenState extends State<PresensiPulangScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF3F6FD),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color(0xFFD9E5FA),
+                width: 2,
+              ),
+            ),
+            child: const Icon(
+              Icons.arrow_back,
+              color: Color(0xFF008AE3),
+            ),
+          ),
+        ),
         title: const Text(
           'Presensi',
           style: TextStyle(
@@ -301,7 +321,7 @@ class PresenceCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => PresensiSelesaiScreen()),
+                    builder: (context) => const PresensiSelesaiScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),
@@ -318,7 +338,7 @@ class PresenceCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => PresensiSelesaiScreen()),
+                    builder: (context) => const PresensiSelesaiScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),

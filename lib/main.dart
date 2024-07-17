@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_screen.dart';
-import 'presensi_screen.dart';
+import 'presensi_screen/presensi_screen.dart';
 import 'koordinat_screen.dart';
 import 'profile_screen.dart';
 import 'offline_screen.dart';

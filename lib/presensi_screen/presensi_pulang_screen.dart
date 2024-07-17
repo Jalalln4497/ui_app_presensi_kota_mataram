@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
+import 'package:ui_app_presensi_kota_mataram/presensi_screen/presensi_selesai_screen.dart';
 import 'dart:async';
 
-class PresensiScreen extends StatefulWidget {
-  const PresensiScreen({super.key});
+class PresensiPulangScreen extends StatefulWidget {
+  const PresensiPulangScreen({super.key});
 
   @override
-  _PresensiScreenState createState() => _PresensiScreenState();
+  _PresensiPulangScreenState createState() => _PresensiPulangScreenState();
 }
 
-class _PresensiScreenState extends State<PresensiScreen> {
+class _PresensiPulangScreenState extends State<PresensiPulangScreen> {
   bool isLoading = true;
   List<Map<String, String>> presenceData = [];
 
@@ -161,22 +162,20 @@ class _PresensiScreenState extends State<PresensiScreen> {
                             borderRadius: const BorderRadius.all(
                               Radius.circular(14.0),
                             ),
-                            color: Colors.red[400],
+                            color: Colors.green[400],
                           ),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.warning_amber_rounded,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              SizedBox(width: 4),
-                              Text(
-                                'Anda belum absen hari ini!',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Anda telah absen masuk. Silahkan absen pulang sesuai jam kerja untuk menyelesaikan absen kerja hari ini.',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
@@ -301,7 +300,8 @@ class PresenceCard extends StatelessWidget {
             onPressed: (context) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DetailPage()),
+                MaterialPageRoute(
+                    builder: (context) => PresensiSelesaiScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),
@@ -317,7 +317,8 @@ class PresenceCard extends StatelessWidget {
             onPressed: (context) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DetailPage()),
+                MaterialPageRoute(
+                    builder: (context) => PresensiSelesaiScreen()),
               );
             },
             foregroundColor: const Color(0xFF008AE3),
@@ -346,8 +347,8 @@ class PresenceCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(13.0),
                   child: Image.network(
                     'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
-                    width: 100,
-                    height: 110,
+                    width: 80,
+                    height: 90,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -407,45 +408,12 @@ class PresenceCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Row(
-                      children: [
-                        Icon(
-                          Icons.info_outline_rounded,
-                          color: Color(0xFFEF5350),
-                          size: 20,
-                        ),
-                        SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            'Pastikan datang tepat waktu agar absen tidak tercatat terlambat',
-                            style: TextStyle(
-                              color: Color(0xFFEF5350),
-                              fontSize: 10,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class DetailPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Detail Page'),
-      ),
-      body: Center(
-        child: Text('Detail Page'),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
 import 'package:ui_app_presensi_kota_mataram/presensi_screen/presensi_pulang_screen.dart';
@@ -268,8 +267,13 @@ class _PresensiScreenState extends State<PresensiScreen> {
                         address: item['address']!,
                         status: item['status']!,
                         color: item['color'] == 'red'
-                            ? Colors.red[400]
-                            : Colors.green[400],
+                            // ? Colors.red[400]
+                            // : Colors.green[400],
+                            ? Color(0xFFFFEFEE)
+                            : Color(0xFFE9F8F1),
+                        color_text_alert: item['color'] == 'red'
+                            ? Color(0xFFE33D33)
+                            : Color(0xFF34BD7C),
                       );
                     },
                   ),
@@ -285,12 +289,14 @@ class PresenceCard extends StatelessWidget {
   final String address;
   final String status;
   final Color? color;
+  final Color? color_text_alert;
 
   PresenceCard({
     required this.location,
     required this.address,
     required this.status,
     this.color,
+    this.color_text_alert,
   });
 
   @override
@@ -366,7 +372,7 @@ class PresenceCard extends StatelessWidget {
                     Text(
                       location,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         color: Color(0xFF3892E5),
                         fontWeight: FontWeight.w800,
                       ),
@@ -383,21 +389,10 @@ class PresenceCard extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                       margin: const EdgeInsets.only(bottom: 8),
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            // color: Colors.black.withOpacity(0.1),
-                            spreadRadius: 5,
-                            blurRadius: 15,
-                            offset: const Offset(0, 5),
-                          ),
-                          BoxShadow(
-                            color: Colors.white.withOpacity(0.7),
-                            spreadRadius: -5,
-                            blurRadius: 15,
-                            offset: const Offset(0, -5),
-                          ),
-                        ],
+                        border: Border.all(
+                          color: Color(0xFF66A1EA).withOpacity(0.1),
+                          width: 2,
+                        ),
                         borderRadius: const BorderRadius.all(
                           Radius.circular(14.0),
                         ),
@@ -405,9 +400,9 @@ class PresenceCard extends StatelessWidget {
                       ),
                       child: Text(
                         status,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFFF3F6FD),
+                          color: color_text_alert,
                           fontSize: 10,
                         ),
                       ),

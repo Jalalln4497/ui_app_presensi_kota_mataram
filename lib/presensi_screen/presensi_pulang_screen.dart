@@ -28,30 +28,48 @@ class _PresensiPulangScreenState extends State<PresensiPulangScreen> {
             'address': 'Taman Sangkareang',
             'status': 'Anda di luar radius area ini',
             'color': 'red',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
           },
           {
             'location': 'Sradha Bhakti',
             'address': 'Pura Sangkara Hyang',
             'status': 'Anda di luar radius area ini',
             'color': 'red',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
           },
           {
             'location': 'Kantor Walikota Kota Mataram',
             'address': 'Jl. Pejanggik No.16',
             'status': 'Bagus, Anda dalam radius area ini',
             'color': 'green',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
           },
           {
             'location': 'Dinas Kominfo',
             'address': 'Jl. Flamboyan No.1',
             'status': 'Bagus, Anda dalam radius area ini',
             'color': 'green',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
           },
           {
             'location': 'Dinas Kominfo',
             'address': 'Jl. Flamboyan No.1',
             'status': 'Bagus, Anda dalam radius area ini',
             'color': 'green',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
+          },
+          {
+            'location': 'Dinas Kominfo',
+            'address': 'Jl. Flamboyan No.1',
+            'status': 'Bagus, Anda dalam radius area ini',
+            'color': 'green',
+            'image':
+                'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
           },
         ];
       });
@@ -275,19 +293,33 @@ class _PresensiPulangScreenState extends State<PresensiPulangScreen> {
                       ],
                     ),
                   )
-                : ListView.builder(
-                    itemCount: presenceData.length,
-                    itemBuilder: (context, index) {
-                      final item = presenceData[index];
-                      return PresenceCard(
-                        location: item['location']!,
-                        address: item['address']!,
-                        status: item['status']!,
-                        color: item['color'] == 'red'
-                            ? Colors.red[400]
-                            : Colors.green[400],
-                      );
-                    },
+                : Container(
+                    child: ListView.separated(
+                      itemCount: presenceData.length,
+                      itemBuilder: (context, index) {
+                        final item = presenceData[index];
+                        return PresenceTile(
+                          location: item['location']!,
+                          address: item['address']!,
+                          status: item['status']!,
+                          color: item['color'] == 'red'
+                              ? const Color(0xFFFFEFEE)
+                              : const Color(0xFFE9F8F1),
+                          color_text_alert: item['color'] == 'red'
+                              ? const Color(0xFFE33D33)
+                              : const Color(0xFF34BD7C),
+                          imageUrl: item['image']!,
+                        );
+                      },
+                      separatorBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(left: 82.0, right: 16.0),
+                        child: Divider(
+                          thickness: 1,
+                          color: Colors.grey[300],
+                          height: 1,
+                        ),
+                      ),
+                    ),
                   ),
           ),
         ],
@@ -296,17 +328,21 @@ class _PresensiPulangScreenState extends State<PresensiPulangScreen> {
   }
 }
 
-class PresenceCard extends StatelessWidget {
+class PresenceTile extends StatelessWidget {
   final String location;
   final String address;
   final String status;
   final Color? color;
+  final Color? color_text_alert;
+  final String imageUrl;
 
-  PresenceCard({
+  PresenceTile({
     required this.location,
     required this.address,
     required this.status,
     this.color,
+    this.color_text_alert,
+    required this.imageUrl,
   });
 
   @override
@@ -324,9 +360,10 @@ class PresenceCard extends StatelessWidget {
                     builder: (context) => const PresensiSelesaiScreen()),
               );
             },
+            backgroundColor: const Color(0xFFD9E5FA),
             foregroundColor: const Color(0xFF008AE3),
             icon: Icons.check_circle,
-            label: 'Check in cepat',
+            label: 'Absen Pulang!',
           ),
         ],
       ),
@@ -341,98 +378,96 @@ class PresenceCard extends StatelessWidget {
                     builder: (context) => const PresensiSelesaiScreen()),
               );
             },
+            backgroundColor: const Color(0xFFD9E5FA),
             foregroundColor: const Color(0xFF008AE3),
             icon: Icons.check_circle,
-            label: 'Check in cepat',
+            label: 'Absen Pulang!',
           ),
         ],
       ),
-      child: Card(
-        color: const Color(0xFFF3F6FD),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
-          side: const BorderSide(
-            color: Color(0xFFD9E5FA),
-            width: 1.5,
-          ),
-        ),
-        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(13.0),
-                  child: Image.network(
-                    'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWB4YN-e9v9mH9JQxRxc38GVmb5USJXARFFar-a8bq7ZkWPbgm6o0jhch0pk7BYIDx6G__-O6ozY1fL-1ISKV32_8fQjmepx3mN0I91eN9woCSlIruIm48rAIVFYXksLzG2-tQclQ6DOk/s1600/kecamatan+mataram+kota+mataram.jpg',
-                    width: 80,
-                    height: 90,
-                    fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 5,
+                    blurRadius: 15,
+                    offset: const Offset(0, 5),
                   ),
+                  BoxShadow(
+                    color: Colors.white.withOpacity(0.7),
+                    spreadRadius: -5,
+                    blurRadius: 15,
+                    offset: const Offset(0, -5),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(13.0),
+                child: Image.network(
+                  imageUrl,
+                  width: 55,
+                  height: 55,
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(width: 13),
-              Expanded(
-                flex: 7,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      location,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Color(0xFF3892E5),
-                        fontWeight: FontWeight.w800,
-                      ),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    location,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF3892E5),
+                      fontWeight: FontWeight.w800,
                     ),
-                    Text(
-                      address,
-                      style: const TextStyle(
-                        color: Color(0xFF66A1EA),
-                        fontSize: 10,
-                      ),
+                  ),
+                  Text(
+                    address,
+                    style: const TextStyle(
+                      color: Color(0xFF66A1EA),
+                      fontSize: 10,
                     ),
-                    const SizedBox(height: 10),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      margin: const EdgeInsets.only(bottom: 8),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            // color: Colors.black.withOpacity(0.1),
-                            spreadRadius: 5,
-                            blurRadius: 15,
-                            offset: const Offset(0, 5),
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        margin: const EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color(0xFF66A1EA).withOpacity(0.1),
+                            width: 2,
                           ),
-                          BoxShadow(
-                            color: Colors.white.withOpacity(0.7),
-                            spreadRadius: -5,
-                            blurRadius: 15,
-                            offset: const Offset(0, -5),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(14.0),
                           ),
-                        ],
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(14.0),
+                          color: color,
                         ),
-                        color: color,
-                      ),
-                      child: Text(
-                        status,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFF3F6FD),
-                          fontSize: 10,
+                        child: Text(
+                          status,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: color_text_alert,
+                            fontSize: 10,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

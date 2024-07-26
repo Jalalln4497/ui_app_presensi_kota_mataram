@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen>
     const PresensiScreen(),
     const KoordinatScreen(),
     const ProfileScreen(),
-    const OfflineScreen(),
+    OfflineScreen(),
   ];
 
   @override
